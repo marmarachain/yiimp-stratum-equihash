@@ -239,11 +239,11 @@ void db_update_coinds(YAAMP_DB *db)
     #define NUM_PARAMS 36
     char *coins_data[NUM_COINS][NUM_PARAMS] = {
         {   "1",         // [0] coin id
-            "MORTY",    // [1] name
-            "localhost", // [2] rpc.host
-            "16348", // [3] rpc.port
-            "user1381685943", // [4] rpc.user
-            "passdb5cb56a13ea825be239804af1f4515e27b8870fedaba4d10c57f885431b3a7959", // [5] rpc.pass
+            "MCL",    // [1] name
+            "127.0.0.1", // [2] rpc.host
+            "33825", // [3] rpc.port
+            "mcluser", // [4] rpc.user
+            "ilovemcl", // [5] rpc.pass
             "POW", // [6] rpcencoding / pos
             "RDEpzVM4g2ohN2geRyQiVkD5ufqXWEaYN4", // [7] wallet
             NULL, // [8] reward
@@ -258,7 +258,7 @@ void db_update_coinds(YAAMP_DB *db)
             NULL, // [17] charity_amount (float)
             NULL, // [18] charity_percent (float)
             NULL, // [19] reward_mul (float)
-            "MORTY", // [20] symbol
+            "MCL", // [20] symbol
             "0", // [21] isaux
             NULL, // [22] actual_ttf
             NULL, // [23] actual_ttf

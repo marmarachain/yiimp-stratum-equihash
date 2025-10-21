@@ -28,10 +28,32 @@ Currently app is in developement state (!), it able to receive `getblocktemplate
 - How can i start Stratum in solo mode?
 
     Compile it with `NO_MYSQL` flag as mentioned above, then place your `equihash.conf` in same directory with `stratum` binary and start it like `./stratum equihash`. Don't forget to fill coins array in `db.cpp` for solo mode.
+    
 
 - Where exactly should i fill coins array for local mode?
 
     https://github.com/DeckerSU/yiimp-stratum-equihash/blob/ad5028798aac0be059a37e6afa8b6071544a6aa4/db.cpp#L230 - here. Also, don't forget to change `NUM_COINS` if you plan to add more than one coin.
+
+- Any build instructions for Ubuntu 18 for MCL solo mining?
+    Yes, thx to B. Gültekin Çetiner [![twitter](https://img.shields.io/twitter/follow/drcetiner?style=social)](https://twitter.com/drcetiner )
+
+dependency:
+```
+apt install default-libmysqlclient-dev build-essential git cmake pkg-config libsodium-dev libcurl4-gnutls-dev libnghttp2-dev librtmp-devlibssh2-1 libssh2-1-dev libldap2-dev libidn11-dev libpsl-dev libkrb5-devlibgomp1 wget curl
+```
+build:
+```
+    $ git clone https://github.com/marmarachain/yiimp-stratum-equihash.git
+    $ cd yiimp-stratum-equihash/
+    $ make -C iniparser/ -j$(nproc)
+    $ make -C algos/ -j$(nproc)
+    $ make -C sha3 -j$(nproc)
+    $ make -f Makefile -j$(nproc)
+```
+- don't forget to change wallet in db.cpp https://github.com/marmarachain/yiimp-stratum-equihash/blob/be81daf3bf6330d2760a605146ce409a4e1117bd/db.cpp#L248
+
+`cp config.example/equihash.conf equihash.conf` after that cahnge [TCP] server = 127.0.0.1
+start `./stratum equihash`
 
 ### Other
 
